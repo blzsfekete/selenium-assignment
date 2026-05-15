@@ -1,9 +1,11 @@
+package tests;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 import org.junit.*;
+import pages.HomePage;
 
-import test.java.pages.HomePage;
 
 public class LetCodeTests extends BaseTest {
     @Test

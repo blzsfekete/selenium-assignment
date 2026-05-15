@@ -1,3 +1,11 @@
+package tests;
+
+import org.junit.After;
+import org.junit.Before;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import java.net.URL;
 import java.net.MalformedURLException;
 
 public class BaseTest {

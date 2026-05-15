@@ -1,5 +1,7 @@
-import test.java.utils.ConfigReader;
+package pages;
+
 import org.openqa.selenium.*;
+import utils.ConfigReader;
 
 public class HomePage extends BasePage {
     public HomePage(WebDriver driver) {
