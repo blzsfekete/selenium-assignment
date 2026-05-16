@@ -5,6 +5,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.*;
 import pages.HomePage;
+import pages.InputPage;
 
 
 public class LetCodeTests extends BaseTest {
@@ -25,5 +26,27 @@ public class LetCodeTests extends BaseTest {
         homePage.navigateToWorkspace();
         
         assertTrue(driver.getCurrentUrl().contains("/test"));
+    }
+
+    @Test
+    public void testFillInputFields() {
+        HomePage homePage = new HomePage(driver);
+        InputPage inputPage = new InputPage(driver);
+
+        homePage.openHomePage();
+        driver.get(utils.ConfigReader.getProperty("baseUrl") + "edit");
+
+        inputPage.enterFullName("John Doe");
+        inputPage.appendTextAndTab("!!! :)");
+        
+        String actualText = inputPage.getTextFromGetMeBox();
+        assertEquals("ortonikc", actualText);
+
+        inputPage.clearTextBox();
+        assertEquals("", inputPage.getClearMeInputValue());
+        
+        assertTrue(inputPage.isEditFieldDisabled());
+
+        assertTrue(inputPage.isDontWriteFieldReadonly());
     }
 }

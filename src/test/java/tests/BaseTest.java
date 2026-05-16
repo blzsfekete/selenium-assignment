@@ -15,6 +15,7 @@ public class BaseTest {
     public void setup() throws MalformedURLException {
         ChromeOptions options = new ChromeOptions();
         this.driver = new RemoteWebDriver(new URL("http://selenium:4444/wd/hub"), options);
+        //this.driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
         this.driver.manage().window().maximize();
     }
 
