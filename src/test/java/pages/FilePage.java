@@ -35,8 +35,8 @@ public class FilePage extends BasePage {
     }
 
     public void clickDownloadTextFile() {
-        WebElement btn = waitAndReturnElement(downloadTextButton);
-        btn.click();
+        WebElement downloadButton = waitAndReturnElement(downloadTextButton);
+        downloadButton.click();
     }
 
     public String getDownloadedFileNameFromBrowser() throws InterruptedException {

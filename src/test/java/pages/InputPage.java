@@ -15,38 +15,43 @@ public class InputPage extends BasePage {
     }
 
     public void enterFullName(String name) {
-        WebElement element = waitAndReturnElement(fullNameInput);
-        element.sendKeys(name);
+        WebElement fullNameElement = waitAndReturnElement(fullNameInput);
+        fullNameElement.sendKeys(name);
+    }
+
+    public String getFullNameValue() {
+        WebElement fullNameElement = waitAndReturnElement(fullNameInput);
+        return fullNameElement.getAttribute("value");
     }
 
     public void appendTextAndTab(String textToAppend) {
-        WebElement element = waitAndReturnElement(appendInput);
-        element.sendKeys(textToAppend, Keys.TAB);
+        WebElement appendElement = waitAndReturnElement(appendInput);
+        appendElement.sendKeys(textToAppend, Keys.TAB);
     }
 
     public String getTextFromGetMeBox() {
-        WebElement element = waitAndReturnElement(getMeInput);
-        return element.getAttribute("value"); 
+        WebElement getMeElement = waitAndReturnElement(getMeInput);
+        return getMeElement.getAttribute("value"); 
     }
 
     public void clearTextBox() {
-        WebElement element = waitAndReturnElement(clearMeInput);
-        element.clear();
+        WebElement clearMeElement = waitAndReturnElement(clearMeInput);
+        clearMeElement.clear();
     }
 
     public String getClearMeInputValue() {
-        WebElement element = waitAndReturnElement(clearMeInput);
-        return element.getAttribute("value");
+        WebElement clearMeElement = waitAndReturnElement(clearMeInput);
+        return clearMeElement.getAttribute("value");
     }
 
     public boolean isEditFieldDisabled() {
-        WebElement element = waitAndReturnElement(disabledInput);
-        return !element.isEnabled(); 
+        WebElement disabledElement = waitAndReturnElement(disabledInput);
+        return !disabledElement.isEnabled(); 
     }
 
     public boolean isDontWriteFieldReadonly() {
-        WebElement element = waitAndReturnElement(readonlyInput);
-        String readonlyAttribute = element.getAttribute("readonly");
+        WebElement readonlyElement = waitAndReturnElement(readonlyInput);
+        String readonlyAttribute = readonlyElement.getAttribute("readonly");
         return readonlyAttribute != null && readonlyAttribute.equals("true");
     }
 }

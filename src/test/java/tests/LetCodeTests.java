@@ -1,5 +1,7 @@
 package tests;
 
+import com.github.javafaker.Faker;
+
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -66,6 +68,19 @@ public class LetCodeTests extends BaseTest {
         assertTrue(inputPage.isEditFieldDisabled());
 
         assertTrue(inputPage.isDontWriteFieldReadonly());
+    }
+
+    @Test
+    public void testRandomDataEntry() {
+        InputPage inputPage = new InputPage(driver);
+        navigateTo("edit");
+
+        Faker faker = new Faker();
+
+        String randomFullName = faker.name().fullName();
+
+        inputPage.enterFullName(randomFullName);
+        assertEquals(randomFullName, inputPage.getFullNameValue());
     }
 
     @Test
