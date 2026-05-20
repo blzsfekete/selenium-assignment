@@ -5,6 +5,9 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.RemoteWebDriver;
+
+import utils.ConfigReader;
+
 import java.net.URL;
 import java.net.MalformedURLException;
 
@@ -24,5 +27,10 @@ public class BaseTest {
         if (this.driver != null) {
             this.driver.quit();
         }
+    }
+
+    protected void navigateTo(String endpoint) {
+        String fullUrl = ConfigReader.getProperty("baseUrl") + endpoint;
+        driver.get(fullUrl);
     }
 }

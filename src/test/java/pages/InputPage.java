@@ -3,7 +3,6 @@ package pages;
 import org.openqa.selenium.*;
 
 public class InputPage extends BasePage {
-    
     private final By fullNameInput = By.id("fullName");
     private final By appendInput = By.id("join");
     private final By getMeInput = By.id("getMe");

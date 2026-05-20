@@ -16,6 +16,7 @@ public class ConfigReader {
         }
         catch (IOException e) {
             e.printStackTrace();
+            throw new RuntimeException("Error while loading config.properties");
         }
     }
 
